@@ -57,11 +57,17 @@ def calculator():
     exit()
   while True:
     operation_symbol = input("Pick another operation: ")
-    num3 = float(input("What is the next number?: "))
-    calculation_function = operations[operation_symbol]
-    second_answer = calculation_function(first_answer, num3)
+    
+    if operation_symbol == 'sqrt':
+      second_answer = sqrt(first_answer)
+      print(f"√{first_answer} = {second_answer}")
 
-    print(f"{first_answer} {operation_symbol} {num3} = {second_answer}")
+    else:
+      num3 = float(input("What is the next number?: "))
+      calculation_function = operations[operation_symbol]
+      second_answer = calculation_function(first_answer, num3)
+
+      print(f"{first_answer} {operation_symbol} {num3} = {second_answer}")
 
     want_to_exit2 = input("Type 'y' to continue chaining or 'n' to start a new calculation or 'exit' to exit:")
     if want_to_exit2 == 'y':
